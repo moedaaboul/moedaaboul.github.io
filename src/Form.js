@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import { FaEnvelope, FaCheck } from 'react-icons/fa';
+import { FaEnvelope, FaCheck, FaUser } from 'react-icons/fa';
 
 import { validateEmail } from './utils/helpers';
 
@@ -10,6 +10,7 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [isEmailSuccess, setisEmailSuccess] = useState(false);
   const isFirstRun = useRef(0);
 
@@ -27,28 +28,11 @@ const Form = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (isFirstRender) {
-  //     console.log(isFirstRender);
-  //     setisFirstRender(false);
-  //     return;
-  //   } else if (email && !validateEmail(email)) {
-  //     setErrorMessage('Email does not match format criteria');
-  //     return;
-  //   } else if (!userName) {
-  //     setErrorMessage('Username should not be empty');
-  //     return;
-  //   } else if (!message) {
-  //     setErrorMessage('Message should not be empty');
-  //     return;
-  //   }
-  // }, [email, userName, message]);
-
   useEffect(() => {
     if (isFirstRun.current < 3) {
       isFirstRun.current++;
       return;
-    } else if (email && !validateEmail(email)) {
+    } else if ((email && !validateEmail(email)) || !email) {
       setErrorMessage('Email does not match format criteria');
       setisEmailSuccess(false);
       return;
@@ -81,9 +65,21 @@ const Form = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage('');
+      setSuccessMessage('');
     }, 5000);
     return () => clearTimeout(timeout);
   }, [errorMessage]);
+
+  if (state.succeeded) {
+    return (
+      <div>
+        <p className="help is-success is-size-4">
+          {/* Thanks for messaging. I will respond to you shortly! */}
+          Thanks for messaging. I will respond to you shortly!
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -92,7 +88,7 @@ const Form = () => {
           <label className="label" htmlFor="full-name">
             Name
           </label>
-          <div className="control">
+          <div className="control has-icons-left has-icons-right">
             <input
               value={userName}
               onChange={handleInputChange}
@@ -102,6 +98,12 @@ const Form = () => {
               name="full-name"
               required
             />
+            <span className="icon is-small is-left">
+              <FaUser />
+            </span>
+            <span className="icon is-small is-right">
+              <i>{userName && <FaCheck />}</i>
+            </span>
             <ValidationError
               prefix="Full Name"
               field="full-name"
@@ -142,15 +144,19 @@ const Form = () => {
           <label className="label" htmlFor="message">
             Message
           </label>
-          <div className="control">
+          <div className="control has-icons-left has-icons-right">
             <textarea
               className="textarea is-medium"
               value={message}
               onChange={handleInputChange}
               name="message"
               id="message"
+              placeholder="Text area"
               required
             ></textarea>
+            <span className="icon is-small is-right">
+              <i>{message && <FaCheck />}</i>
+            </span>
             <ValidationError
               prefix="Message"
               field="message"
@@ -183,7 +189,8 @@ const Form = () => {
       {state.succeeded && (
         <div>
           <p className="help is-success is-size-4">
-            Thanks for messaging. I will respond to you shortly!
+            {/* Thanks for messaging. I will respond to you shortly! */}
+            {successMessage}
           </p>
         </div>
       )}
