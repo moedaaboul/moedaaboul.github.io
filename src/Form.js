@@ -1,88 +1,143 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
+import { validateEmail } from './utils/helpers';
+
 const Form = () => {
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
-  if (state.succeeded) {
-    return <p>Thanks for messaging. I will respond to you shortly!</p>;
-  }
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { target } = e;
+    const inputType = target.name;
+    const inputValue = target.value;
+
+    if (inputType === 'email') {
+      setEmail(inputValue);
+    } else if (inputType === 'full-name') {
+      setUserName(inputValue);
+    } else if (inputType === 'message') {
+      setMessage(inputValue);
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateEmail(email) || !userName) {
+      setErrorMessage('Email or username is invalid');
+      return;
+    }
+
+    setUserName('');
+    setMessage('');
+    setEmail('');
+    handleSubmit();
+    alert(`Hello ${userName}`);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="field">
-        <label className="label" htmlFor="full-name">
-          Name
-        </label>
-        <div className="control">
-          <input
-            className="input is-medium"
-            id="full-name"
-            type="text"
-            name="full-name"
-            required
-          />
-          <ValidationError
-            prefix="Full Name"
-            field="full-name"
-            errors={state.errors}
-          />
-        </div>
-      </div>
-      <div className="field">
-        <label className="label" htmlFor="email">
-          Your Email
-        </label>
-        <div className="control">
-          <p className="control has-icons-left has-icons-right">
+    <>
+      <form onSubmit={handleSubmit}>
+        <div className="field">
+          <label className="label" htmlFor="full-name">
+            Name
+          </label>
+          <div className="control">
             <input
-              className="input"
-              name="email"
-              type="email"
-              id="email"
-              placeholder="Email"
+              value={userName}
+              onChange={handleInputChange}
+              className="input is-medium"
+              id="full-name"
+              type="text"
+              name="full-name"
+              // required
             />
-            <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-check"></i>
-            </span>
-          </p>
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+            <ValidationError
+              prefix="Full Name"
+              field="full-name"
+              errors={state.errors}
+            />
+          </div>
         </div>
-      </div>
-      <div className="field">
-        <label className="label" htmlFor="message">
-          Message
-        </label>
+        <div className="field">
+          <label className="label" htmlFor="email">
+            Your Email
+          </label>
+          <div className="control">
+            <p className="control has-icons-left has-icons-right">
+              <input
+                className="input"
+                value={email}
+                onChange={handleInputChange}
+                name="email"
+                type="email"
+                id="email"
+                placeholder="Email"
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-envelope"></i>
+              </span>
+              <span className="icon is-small is-right">
+                <i className="fas fa-check"></i>
+              </span>
+            </p>
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label" htmlFor="message">
+            Message
+          </label>
+          <div className="control">
+            <textarea
+              className="textarea is-medium"
+              value={message}
+              onChange={handleInputChange}
+              name="message"
+              id="message"
+            ></textarea>
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
+          </div>
+        </div>
         <div className="control">
-          <textarea
-            className="textarea is-medium"
-            name="message"
-            id="message"
-          ></textarea>
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-          />
-        </div>
-      </div>
-      <div className="control">
-        <button
-          type="submit"
-          className="
+          <button
+            type="submit"
+            className="
                     submit
                     button
                     is-link is-fullwidth
                     has-text-weight-medium
                     is-medium is-success
                   "
-          disabled={state.submitting}
-        >
-          Submit message
-        </button>
-      </div>
-    </form>
+            disabled={state.submitting}
+          >
+            Submit message
+          </button>
+        </div>
+      </form>
+      {errorMessage && (
+        <div>
+          <p className="error-text">{errorMessage}</p>
+        </div>
+      )}
+      {state.succeeded && (
+        <div>
+          <p>Thanks for messaging. I will respond to you shortly!</p>;
+        </div>
+      )}
+    </>
   );
 };
 
