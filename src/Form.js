@@ -94,7 +94,7 @@ const Form = () => {
               id="full-name"
               type="text"
               name="full-name"
-              // required
+              required
             />
             <ValidationError
               prefix="Full Name"
@@ -143,6 +143,7 @@ const Form = () => {
               onChange={handleInputChange}
               name="message"
               id="message"
+              required
             ></textarea>
             <ValidationError
               prefix="Message"
