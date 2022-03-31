@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { navbarLinks } from './data';
 
 const Navbar = ({ setPage }) => {
+  const linksContainerRef = useRef(null);
+  const linkElementsRef = useRef(null);
+  const [height, setHeight] = useState(0);
+  const handleClick = (e) => {
+    e.preventDefault();
+    const containerHeight =
+      linksContainerRef.current.getBoundingClientRect().height;
+    const elementsHeight =
+      linkElementsRef.current.getBoundingClientRect().height;
+    if (containerHeight === 0) {
+      setHeight(elementsHeight);
+    } else {
+      setHeight(0);
+    }
+  };
   return (
     <nav className="navbar is-dark">
       <div className="container">
         <section className="navbar-brand">
-          <div className="navbar-burger burger">
+          <div className="navbar-burger burger" onClick={handleClick}>
             <span></span>
             <span></span>
             <span></span>
@@ -17,10 +32,11 @@ const Navbar = ({ setPage }) => {
           navbar-menu
           menu-container
           overflow-hidden
-          is-light is-flex-desktop is-align-content-center
-        "
+          is-light is-flex-desktop is-align-content-center"
+          ref={linksContainerRef}
+          style={{ height: height }}
         >
-          <section className="navbar-end menu is-dark">
+          <ul className="navbar-end menu is-dark" ref={linkElementsRef}>
             {navbarLinks.map((item) => {
               const { id, url, text, icon, page } = item;
               const urlAttribute = url ? { href: url } : {};
@@ -36,7 +52,7 @@ const Navbar = ({ setPage }) => {
                 </a>
               );
             })}
-          </section>
+          </ul>
         </section>
       </div>
     </nav>
