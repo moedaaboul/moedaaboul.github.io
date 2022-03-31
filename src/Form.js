@@ -1,10 +1,15 @@
 import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Form = () => {
+  const [state, handleSubmit] = useForm('xknyvvlj');
+  if (state.succeeded) {
+    return <p>Thanks for messaging. I will respond to you shortly!</p>;
+  }
   return (
-    <form action="https://formspree.io/f/xpzbznng" method="POST">
+    <form onSubmit={handleSubmit}>
       <div className="field">
-        <label className="label" for="full-name">
+        <label className="label" htmlFor="full-name">
           Name
         </label>
         <div className="control">
@@ -15,10 +20,15 @@ const Form = () => {
             name="full-name"
             required
           />
+          <ValidationError
+            prefix="Full Name"
+            field="full-name"
+            errors={state.errors}
+          />
         </div>
       </div>
       <div className="field">
-        <label className="label" for="email">
+        <label className="label" htmlFor="email">
           Your Email
         </label>
         <div className="control">
@@ -37,10 +47,11 @@ const Form = () => {
               <i className="fas fa-check"></i>
             </span>
           </p>
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
         </div>
       </div>
       <div className="field">
-        <label className="label" for="message">
+        <label className="label" htmlFor="message">
           Message
         </label>
         <div className="control">
@@ -49,6 +60,11 @@ const Form = () => {
             name="message"
             id="message"
           ></textarea>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
         </div>
       </div>
       <div className="control">
@@ -61,6 +77,7 @@ const Form = () => {
                     has-text-weight-medium
                     is-medium is-success
                   "
+          disabled={state.submitting}
         >
           Submit message
         </button>
