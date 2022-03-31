@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 import { validateEmail } from './utils/helpers';
@@ -9,7 +9,7 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isFirstRender, setisFirstRender] = useState(true);
+  const isFirstRun = useRef(0);
 
   const handleInputChange = (e) => {
     const { target } = e;
@@ -43,9 +43,8 @@ const Form = () => {
   // }, [email, userName, message]);
 
   useEffect(() => {
-    if (isFirstRender) {
-      console.log(isFirstRender);
-      setisFirstRender(false);
+    if (isFirstRun.current < 3) {
+      isFirstRun.current++;
       return;
     } else if (email && !validateEmail(email)) {
       setErrorMessage('Email does not match format criteria');
@@ -54,9 +53,8 @@ const Form = () => {
   }, [email]);
 
   useEffect(() => {
-    if (isFirstRender) {
-      console.log(isFirstRender);
-      setisFirstRender(false);
+    if (isFirstRun.current < 3) {
+      isFirstRun.current++;
       return;
     } else if (!message) {
       setErrorMessage('Message should not be empty');
@@ -65,9 +63,8 @@ const Form = () => {
   }, [message]);
 
   useEffect(() => {
-    if (isFirstRender) {
-      console.log(isFirstRender);
-      setisFirstRender(false);
+    if (isFirstRun.current < 3) {
+      isFirstRun.current++;
       return;
     } else if (!userName) {
       setErrorMessage('Username should not be empty');
@@ -78,7 +75,7 @@ const Form = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage('');
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timeout);
   }, [errorMessage]);
 
