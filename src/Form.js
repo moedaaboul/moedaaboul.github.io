@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 import { validateEmail } from './utils/helpers';
@@ -9,6 +9,7 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isFirstRender, setisFirstRender] = useState(true);
 
   const handleInputChange = (e) => {
     const { target } = e;
@@ -24,20 +25,62 @@ const Form = () => {
     }
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  // useEffect(() => {
+  //   if (isFirstRender) {
+  //     console.log(isFirstRender);
+  //     setisFirstRender(false);
+  //     return;
+  //   } else if (email && !validateEmail(email)) {
+  //     setErrorMessage('Email does not match format criteria');
+  //     return;
+  //   } else if (!userName) {
+  //     setErrorMessage('Username should not be empty');
+  //     return;
+  //   } else if (!message) {
+  //     setErrorMessage('Message should not be empty');
+  //     return;
+  //   }
+  // }, [email, userName, message]);
 
-    if (!validateEmail(email) || !userName) {
-      setErrorMessage('Email or username is invalid');
+  useEffect(() => {
+    if (isFirstRender) {
+      console.log(isFirstRender);
+      setisFirstRender(false);
+      return;
+    } else if (email && !validateEmail(email)) {
+      setErrorMessage('Email does not match format criteria');
       return;
     }
+  }, [email]);
 
-    setUserName('');
-    setMessage('');
-    setEmail('');
-    handleSubmit();
-    alert(`Hello ${userName}`);
-  };
+  useEffect(() => {
+    if (isFirstRender) {
+      console.log(isFirstRender);
+      setisFirstRender(false);
+      return;
+    } else if (!message) {
+      setErrorMessage('Message should not be empty');
+      return;
+    }
+  }, [message]);
+
+  useEffect(() => {
+    if (isFirstRender) {
+      console.log(isFirstRender);
+      setisFirstRender(false);
+      return;
+    } else if (!userName) {
+      setErrorMessage('Username should not be empty');
+      return;
+    }
+  }, [userName]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setErrorMessage('');
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, [errorMessage]);
 
   return (
     <>
@@ -114,13 +157,14 @@ const Form = () => {
         <div className="control">
           <button
             type="submit"
-            className="
+            className={`
                     submit
                     button
+                    ${state.submitting && `is-loading`}
                     is-link is-fullwidth
                     has-text-weight-medium
                     is-medium is-success
-                  "
+                  `}
             disabled={state.submitting}
           >
             Submit message
