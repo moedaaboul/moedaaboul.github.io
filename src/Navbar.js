@@ -1,7 +1,7 @@
 import React from 'react';
 import { navbarLinks } from './data';
 
-const Navbar = () => {
+const Navbar = ({ setPage }) => {
   return (
     <nav className="navbar is-dark">
       <div className="container">
@@ -22,9 +22,15 @@ const Navbar = () => {
         >
           <section className="navbar-end menu is-dark">
             {navbarLinks.map((item) => {
-              const { id, url, text, icon } = item;
+              const { id, url, text, icon, page } = item;
+              const urlAttribute = url ? { href: url } : {};
               return (
-                <a key={id} className="navbar-item" href={url}>
+                <a
+                  key={id}
+                  className="navbar-item"
+                  {...urlAttribute}
+                  onClick={() => setPage(page)}
+                >
                   <span className="icon">{icon}</span>
                   <span>{text}</span>
                 </a>

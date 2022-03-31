@@ -10,27 +10,31 @@ import {
 export const navbarLinks = [
   {
     id: 1,
-    url: '/',
+    url: '',
     icon: <FaInfo />,
     text: 'About me',
+    page: 'home',
   },
   {
     id: 2,
     url: './assets/resume.pdf',
     icon: <BsFileEarmarkTextFill />,
     text: 'Resume',
+    page: '',
   },
   {
     id: 3,
     url: '',
     icon: <BsImages />,
     text: 'Portfolio',
+    page: 'portfolio',
   },
   {
     id: 4,
     url: '',
     icon: <FaEnvelope />,
     text: 'Contact',
+    page: 'contact',
   },
 ];
 
