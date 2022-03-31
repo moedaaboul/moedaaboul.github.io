@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
+import Header from './Header';
 import Home from './Home';
 import Contact from './Contact';
 
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <Navbar setPage={setPage} />
+      <Header setPage={setPage} />
       {page === 'home' && <Home />}
       {page === 'contact' && <Contact />}
     </>

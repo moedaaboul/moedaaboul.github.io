@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { FaEnvelope, FaCheck } from 'react-icons/fa';
 
 import { validateEmail } from './utils/helpers';
 
@@ -9,6 +10,7 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isEmailSuccess, setisEmailSuccess] = useState(false);
   const isFirstRun = useRef(0);
 
   const handleInputChange = (e) => {
@@ -48,6 +50,10 @@ const Form = () => {
       return;
     } else if (email && !validateEmail(email)) {
       setErrorMessage('Email does not match format criteria');
+      setisEmailSuccess(false);
+      return;
+    } else if (email && validateEmail(email)) {
+      setisEmailSuccess(true);
       return;
     }
   }, [email]);
@@ -119,10 +125,10 @@ const Form = () => {
                 placeholder="Email"
               />
               <span className="icon is-small is-left">
-                <i className="fas fa-envelope"></i>
+                <FaEnvelope />
               </span>
               <span className="icon is-small is-right">
-                <i className="fas fa-check"></i>
+                <i>{isEmailSuccess && <FaCheck />}</i>
               </span>
             </p>
             <ValidationError
@@ -171,12 +177,14 @@ const Form = () => {
       </form>
       {errorMessage && (
         <div>
-          <p className="error-text">{errorMessage}</p>
+          <p className="help is-danger is-size-4">{errorMessage}</p>
         </div>
       )}
       {state.succeeded && (
         <div>
-          <p>Thanks for messaging. I will respond to you shortly!</p>;
+          <p className="help is-success is-size-4">
+            Thanks for messaging. I will respond to you shortly!
+          </p>
         </div>
       )}
     </>

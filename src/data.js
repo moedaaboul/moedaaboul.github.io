@@ -6,6 +6,7 @@ import {
   FaGithub,
   FaStackOverflow,
 } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 
 export const navbarLinks = [
   {
@@ -45,19 +46,24 @@ export const socialMediaLinks = [
     icon: <FaLinkedin />,
   },
   {
-    id: 2,
-    url: 'https://twitter.com/mdaaboul3',
-    icon: <FaTwitter />,
-  },
-  {
     id: 3,
     url: 'https://github.com/moedaaboul',
     icon: <FaGithub />,
   },
   {
+    id: 5,
+    url: 'mailto:muhammad.daaboul1989@gmail.com',
+    icon: <SiGmail />,
+    text: 'gmail',
+  },
+  {
+    id: 2,
+    url: 'https://twitter.com/mdaaboul3',
+    icon: <FaTwitter />,
+  },
+  {
     id: 4,
     url: 'https://stackoverflow.com/users/14984871/m-daaboul',
     icon: <FaStackOverflow />,
-    text: 'Contact',
   },
 ];

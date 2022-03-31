@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { navbarLinks } from './data';
 
-const Navbar = ({ setPage }) => {
+const Header = ({ setPage }) => {
   const linksContainerRef = useRef(null);
   const linkElementsRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -59,4 +59,4 @@ const Navbar = ({ setPage }) => {
   );
 };
 
-export default Navbar;
+export default Header;
