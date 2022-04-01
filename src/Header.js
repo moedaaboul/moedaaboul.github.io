@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { navbarLinks } from './data';
+// import { navbarLinks } from './data';
+import Navigation from './Navigation';
 
 const Header = ({ setPage }) => {
   const linksContainerRef = useRef(null);
@@ -37,7 +38,7 @@ const Header = ({ setPage }) => {
           style={{ height: height }}
         >
           <ul className="navbar-end menu is-dark" ref={linkElementsRef}>
-            {navbarLinks.map((item) => {
+            {/* {navbarLinks.map((item) => {
               const { id, url, text, icon, page } = item;
               const urlAttribute = url ? { href: url } : {};
               return (
@@ -51,7 +52,8 @@ const Header = ({ setPage }) => {
                   <span>{text}</span>
                 </a>
               );
-            })}
+            })} */}
+            <Navigation setPage={setPage} />
           </ul>
         </section>
       </div>
