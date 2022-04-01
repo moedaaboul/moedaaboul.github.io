@@ -37,6 +37,7 @@ const Form = () => {
       setisEmailSuccess(false);
       return;
     } else if (email && validateEmail(email)) {
+      setErrorMessage('');
       setisEmailSuccess(true);
       return;
     }
@@ -49,6 +50,9 @@ const Form = () => {
     } else if (!message) {
       setErrorMessage('Message should not be empty');
       return;
+    } else {
+      setErrorMessage('');
+      return;
     }
   }, [message]);
 
@@ -58,6 +62,9 @@ const Form = () => {
       return;
     } else if (!userName) {
       setErrorMessage('Username should not be empty');
+      return;
+    } else {
+      setErrorMessage('');
       return;
     }
   }, [userName]);
