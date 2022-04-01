@@ -10,7 +10,6 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [isEmailSuccess, setisEmailSuccess] = useState(false);
   const isFirstRun = useRef(0);
 
@@ -72,7 +71,6 @@ const Form = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage('');
-      setSuccessMessage('');
     }, 5000);
     return () => clearTimeout(timeout);
   }, [errorMessage]);
@@ -81,7 +79,6 @@ const Form = () => {
     return (
       <div>
         <p className="help is-success is-size-4">
-          {/* Thanks for messaging. I will respond to you shortly! */}
           Thanks for messaging. I will respond to you shortly!
         </p>
       </div>
@@ -191,14 +188,6 @@ const Form = () => {
       {errorMessage && (
         <div>
           <p className="help is-danger is-size-4">{errorMessage}</p>
-        </div>
-      )}
-      {state.succeeded && (
-        <div>
-          <p className="help is-success is-size-4">
-            {/* Thanks for messaging. I will respond to you shortly! */}
-            {successMessage}
-          </p>
         </div>
       )}
     </>
