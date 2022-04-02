@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { skills, portfolio } from './data';
 
 const Portfolio = ({ title }) => {
+  const [index, setIndex] = useState(0);
   const filter = portfolio.filter((project) => project.name === title);
   const [{ github, images, name, technologies, url }] = filter;
   console.log(github, images, name, technologies, url);
@@ -10,6 +11,36 @@ const Portfolio = ({ title }) => {
   });
   console.log(skillsData);
   const titleIndex = portfolio.findIndex((x) => x.name === title);
+  const increaseIndex = () =>
+    index === portfolio[titleIndex].images.length - 1
+      ? setIndex(0)
+      : setIndex(index + 1);
+
+  const styles = {
+    hidden: {
+      display: 'none',
+    },
+    show: {
+      display: 'block',
+    },
+  };
+
+  const findStyle = (i) => {
+    if (index === i) {
+      return styles.show;
+    } else {
+      return styles.hidden;
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      increaseIndex();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [index]);
+
   return (
     <>
       <div className="card">
@@ -35,7 +66,7 @@ const Portfolio = ({ title }) => {
           <div className="slideshow-container">
             {portfolio[titleIndex].images.map((e, i) => {
               return (
-                <div className="mySlides fade">
+                <div className="mySlides fade" style={findStyle(i)}>
                   <figure className="image is-6by3">
                     <img src={e} alt="" />
                   </figure>
@@ -51,7 +82,10 @@ const Portfolio = ({ title }) => {
               <p className="card-footer-item">
                 <span>
                   View on
-                  <a href={portfolio[titleIndex].github} className="is-link">
+                  <a
+                    href={portfolio[titleIndex].github}
+                    className="is-link ml-1"
+                  >
                     Github
                   </a>
                 </span>
