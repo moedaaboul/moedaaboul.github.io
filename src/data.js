@@ -167,9 +167,9 @@ export const portfolio = [
     name: 'weather-dashboard',
     technologies: ['JavaScript', 'HTML5', 'CSS3'],
     images: [
-      'images/weather/weather1.png"',
-      'images/weather/weather2.png"',
-      'images/weather/weather3.png"',
+      'images/weather/weather1.png',
+      'images/weather/weather2.png',
+      'images/weather/weather3.png',
     ],
     github: 'https://github.com/moedaaboul/weather-dashboard',
     url: 'https://moedaaboul.github.io/weather-dashboard//',

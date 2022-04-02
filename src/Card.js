@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { skills, portfolio } from './data';
 
-const Portfolio = ({ title }) => {
+const Portfolio = ({ title, isSquare }) => {
   const [index, setIndex] = useState(0);
   const filter = portfolio.filter((project) => project.name === title);
   const [{ github, images, name, technologies, url }] = filter;
@@ -43,7 +43,7 @@ const Portfolio = ({ title }) => {
 
   return (
     <>
-      <div className="card">
+      <div className={`card ${isSquare && 'square'}`}>
         <header className="card-header">
           <h3 className="card-header-title">{name}</h3>
           <div className="is-flex is-align-items-center">
@@ -67,7 +67,9 @@ const Portfolio = ({ title }) => {
             {portfolio[titleIndex].images.map((e, i) => {
               return (
                 <div className="mySlides fade" style={findStyle(i)}>
-                  <figure className="image is-6by3">
+                  <figure
+                    className={`image ${isSquare ? `is-3by2` : `is-6by3`}`}
+                  >
                     <img src={e} alt="" />
                   </figure>
                 </div>
