@@ -32,55 +32,34 @@ const Portfolio = () => {
         </header>
         <div className="card-content">
           <div className="slideshow-container">
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram.png" alt="" />
-              </figure>
-            </div>
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram2.png" alt="" />
-              </figure>
-            </div>
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram3.png" alt="" />
-              </figure>
-            </div>
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram4.png" alt="" />
-              </figure>
-            </div>
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram5.png" alt="" />
-              </figure>
-            </div>
-            <div className="mySlides fade">
-              <figure className="image is-6by3">
-                <img src="images/legogram/legogram6.png" alt="" />
-              </figure>
-            </div>
+            {portfolio[0].images.map((e, i) => {
+              return (
+                <div className="mySlides fade">
+                  <figure className="image is-6by3">
+                    <img src={e} alt="" />
+                  </figure>
+                </div>
+              );
+            })}
+            <footer className="card-footer">
+              <p className="card-footer-item">
+                <span>
+                  <a href="https://legogram.herokuapp.com/">Preview</a>
+                </span>
+              </p>
+              <p className="card-footer-item">
+                <span>
+                  View on
+                  <a
+                    href="https://github.com/moedaaboul/legogram"
+                    className="is-link"
+                  >
+                    Github
+                  </a>
+                </span>
+              </p>
+            </footer>
           </div>
-          <footer className="card-footer">
-            <p className="card-footer-item">
-              <span>
-                <a href="https://legogram.herokuapp.com/">Preview</a>
-              </span>
-            </p>
-            <p className="card-footer-item">
-              <span>
-                View on
-                <a
-                  href="https://github.com/moedaaboul/legogram"
-                  className="is-link"
-                >
-                  Github
-                </a>
-              </span>
-            </p>
-          </footer>
         </div>
       </div>
     </>
