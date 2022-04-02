@@ -1,14 +1,15 @@
 import React from 'react';
 import { skills, portfolio } from './data';
 
-const Portfolio = () => {
-  const filter = portfolio.filter((project) => project.name === 'legogram');
+const Portfolio = ({ title }) => {
+  const filter = portfolio.filter((project) => project.name === title);
   const [{ github, images, name, technologies, url }] = filter;
   console.log(github, images, name, technologies, url);
   const skillsData = technologies.map((tech) => {
     return skills.filter((skill) => skill.name === tech);
   });
   console.log(skillsData);
+  const titleIndex = portfolio.findIndex((x) => x.name === title);
   return (
     <>
       <div className="card">
@@ -32,7 +33,7 @@ const Portfolio = () => {
         </header>
         <div className="card-content">
           <div className="slideshow-container">
-            {portfolio[0].images.map((e, i) => {
+            {portfolio[titleIndex].images.map((e, i) => {
               return (
                 <div className="mySlides fade">
                   <figure className="image is-6by3">
@@ -44,16 +45,13 @@ const Portfolio = () => {
             <footer className="card-footer">
               <p className="card-footer-item">
                 <span>
-                  <a href="https://legogram.herokuapp.com/">Preview</a>
+                  <a href={portfolio[titleIndex].url}>Preview</a>
                 </span>
               </p>
               <p className="card-footer-item">
                 <span>
                   View on
-                  <a
-                    href="https://github.com/moedaaboul/legogram"
-                    className="is-link"
-                  >
+                  <a href={portfolio[titleIndex].github} className="is-link">
                     Github
                   </a>
                 </span>

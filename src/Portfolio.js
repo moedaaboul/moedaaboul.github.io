@@ -11,7 +11,7 @@ const Portfolio = () => {
       <section className="portfolio container is-flex is-flex-direction-column">
         <div className="columns row-1">
           <div className="column is-12">
-            <Card />
+            <Card title="legogram" />
           </div>
         </div>
       </section>
