@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { skills, portfolio } from './data';
+import { useGlobalContext } from './context';
 
 const Portfolio = ({ title, isSquare }) => {
+  const { openModal, setRepoData, setRepoImages } = useGlobalContext();
   const [index, setIndex] = useState(0);
   const [isAnimation, setIsAnimation] = useState(false);
   const squareWrapperRef = useRef(null);
@@ -69,7 +71,16 @@ const Portfolio = ({ title, isSquare }) => {
           }`}
         >
           <header className="card-header">
-            <h3 className="card-header-title">{name}</h3>
+            <h3
+              className="card-header-title"
+              onClick={() => {
+                setRepoData(title);
+                setRepoImages(portfolio[titleIndex].images);
+                openModal();
+              }}
+            >
+              {name}
+            </h3>
             <div className="is-flex is-align-items-center">
               {skillsData.map((e, i) => {
                 const [{ classDesc, src, name }] = e;
