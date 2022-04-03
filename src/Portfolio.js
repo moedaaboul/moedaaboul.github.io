@@ -16,41 +16,29 @@ const Portfolio = () => {
         </div>
         <div class="columns row-3">
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="tech-blog" isSquare={true} />
-            </div>
+            <Card title="tech-blog" isSquare={true} />
           </div>
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="jobs-finder" isSquare={true} />
-            </div>
+            <Card title="jobs-finder" isSquare={true} />
           </div>
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="team-profile-generator" isSquare={true} />
-            </div>
+            <Card title="team-profile-generator" isSquare={true} />
           </div>
         </div>
         <div class="columns row-3">
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="quiz-app" isSquare={true} />
-            </div>
+            <Card title="quiz-app" isSquare={true} />
           </div>
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="weather-dashboard" isSquare={true} />
-            </div>
+            <Card title="weather-dashboard" isSquare={true} />
           </div>
           <div class="column is-4">
-            <div class="square-wrapper">
-              <Card title="password-generator" isSquare={true} />
-            </div>
+            <Card title="password-generator" isSquare={true} />
           </div>
         </div>
         {/* <div class="columns row-3">
               <div class="column is-4">
-                <div class="square-wrapper">
+                
                   <Card title="quiz-app" isSquare={true} />
                   <Card title="weather-dashboard" isSquare={true} />
                   <Card title="password-generator" isSquare={true} />
