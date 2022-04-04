@@ -3,11 +3,14 @@ import { useGlobalContext } from './context';
 // import { parseDate } from './utils/parseDate';
 // import { parseTitle } from './utils/parseTitle';
 import { getRepoData } from './utils/getRepoData';
+import CountUp from 'react-countup';
 
 const Modal = () => {
   const { isModalOpen, closeModal, repoData, repoImages } = useGlobalContext();
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
+  const [isSpinning, setIsSpinning] = useState(false);
+  const [tags, setTags] = useState([]);
 
   const increaseIndex = () =>
     index === repoImages.length - 1 ? setIndex(0) : setIndex(index + 1);
@@ -48,6 +51,7 @@ const Modal = () => {
       const response = await getRepoData(repoData);
       console.log(response);
       setData(response);
+      setTags(response.tags);
     } catch (error) {
       console.log(error);
     }
@@ -92,18 +96,31 @@ const Modal = () => {
                 </span>
               </p>
             </footer>
-            <div className="license-container is-flex is-align-items-center mb-2 mt-2">
+            <div className="license-container is-flex is-align-items-center mb-2">
               <img src="./images/tag.svg" alt="git-tag" />
-              <p className="ml-2"></p>
+              <p className="ml-2">
+                {tags.map((element, index) => (
+                  <span key={index} className="tag is-success m-1">
+                    {element}
+                  </span>
+                ))}
+              </p>
             </div>
             <div className="license-container is-flex is-align-items-center mb-2">
               <img
                 src="./images/git-commit.svg"
-                className="commit-svg"
+                className={`commit-svg ${isSpinning && `icn-spinner`}`}
                 alt="git-commit"
               />
               <p className="ml-2" id="value" data-value={data.commits}>
-                {data.commits} commits
+                <CountUp
+                  start={data.commits / 4}
+                  end={data.commits}
+                  duration={2}
+                  onStart={() => setIsSpinning(true)}
+                  onEnd={() => setIsSpinning(false)}
+                />{' '}
+                commits
               </p>
             </div>
             <div className="license-container is-flex is-align-items-center mb-2">

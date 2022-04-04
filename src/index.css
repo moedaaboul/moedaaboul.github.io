@@ -343,6 +343,7 @@ html {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(1077deg);
+    /* 2154 / 6 = 359 */
+    transform: rotate(2154deg);
   }
 }
