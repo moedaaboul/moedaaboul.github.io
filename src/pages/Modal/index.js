@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from '../../context';
 // import { parseDate } from './utils/parseDate';
 // import { parseTitle } from './utils/parseTitle';
-import { getRepoData } from './utils/getRepoData';
+import { getRepoData } from '../../utils/getRepoData';
 import CountUp from 'react-countup';
 
 const Modal = () => {

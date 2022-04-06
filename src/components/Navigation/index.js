@@ -1,5 +1,5 @@
 import React from 'react';
-import { navbarLinks } from './data';
+import { navbarLinks } from '../../data';
 
 const Navigation = ({ setPage }) => {
   return navbarLinks.map((item) => {

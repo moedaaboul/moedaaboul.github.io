@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Navigation from './Navigation';
+import Navigation from '../Navigation';
 
 const Header = ({ setPage }) => {
   const linksContainerRef = useRef(null);

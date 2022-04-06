@@ -1,6 +1,6 @@
 import React from 'react';
-import { socialMediaLinks } from './data';
-import Form from './Form';
+import { socialMediaLinks } from '../../data';
+import Form from '../../components/Form';
 
 const Contact = () => {
   return (

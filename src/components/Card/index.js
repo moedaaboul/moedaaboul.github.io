@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { skills, portfolio } from './data';
-import { useGlobalContext } from './context';
+import { skills, portfolio } from '../../data';
+import { useGlobalContext } from '../../context';
 
 const Portfolio = ({ title, isSquare }) => {
   const { openModal, setRepoData, setRepoImages } = useGlobalContext();

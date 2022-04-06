@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Home from './Home';
-import Contact from './Contact';
-import Portfolio from './Portfolio';
-import Modal from './Modal';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
+import Modal from './pages/Modal';
 import { useGlobalContext } from './context';
 
 function App() {
