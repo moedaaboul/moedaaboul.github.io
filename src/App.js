@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Modal from './pages/Modal';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from './providers/GlobalStateProvider';
 
 function App() {
   const [page, setPage] = useState('home');

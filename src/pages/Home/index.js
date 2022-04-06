@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './index.css';
 const Home = () => {
   return (
     <section className="hero is-dark is-fullheight-with-navbar" id="about-me">

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useGlobalContext } from '../../context';
+import { useGlobalContext } from '../../providers/GlobalStateProvider';
 // import { parseDate } from './utils/parseDate';
 // import { parseTitle } from './utils/parseTitle';
 import { getRepoData } from '../../utils/getRepoData';
 import CountUp from 'react-countup';
+import './index.css';
 
 const Modal = () => {
   const { isModalOpen, closeModal, repoData, repoImages } = useGlobalContext();

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { skills, portfolio } from '../../data';
-import { useGlobalContext } from '../../context';
+import { useGlobalContext } from '../../providers/GlobalStateProvider';
+import './index.css';
 
 const Portfolio = ({ title, isSquare }) => {
   const { openModal, setRepoData, setRepoImages } = useGlobalContext();
@@ -14,10 +15,6 @@ const Portfolio = ({ title, isSquare }) => {
     return skills.filter((skill) => skill.name === tech);
   });
   const titleIndex = portfolio.findIndex((x) => x.name === title);
-  const increaseIndex = () =>
-    index === portfolio[titleIndex].images.length - 1
-      ? setIndex(0)
-      : setIndex(index + 1);
 
   const styles = {
     hidden: {
@@ -37,30 +34,32 @@ const Portfolio = ({ title, isSquare }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      increaseIndex();
-    }, 3000);
+    const interval = setInterval(
+      () =>
+        index === portfolio[titleIndex].images.length - 1
+          ? setIndex(0)
+          : setIndex(index + 1),
+      3000
+    );
 
     return () => clearInterval(interval);
-  }, [index]);
-
-  const scrollCallback = (entries) => {
-    if (entries[0].isIntersecting && isSquare) {
-      setIsAnimation(true);
-    } else {
-      setIsAnimation(false);
-    }
-  };
+  }, [index, titleIndex]);
 
   useEffect(() => {
     // *** Grab the element related to this callback
     const { current } = squareWrapperRef;
-    const observer = new IntersectionObserver(scrollCallback);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && isSquare) {
+        setIsAnimation(true);
+      } else {
+        setIsAnimation(false);
+      }
+    });
     observer.observe(current);
     return () => {
       observer.disconnect(current); // *** Use the same element
     };
-  }, []);
+  }, [isSquare]);
 
   return (
     <>

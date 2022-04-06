@@ -1,6 +1,7 @@
 import React from 'react';
 import { socialMediaLinks } from '../../data';
 import Form from '../../components/Form';
+import './index.css';
 
 const Contact = () => {
   return (

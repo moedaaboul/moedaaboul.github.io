@@ -1,0 +1,16 @@
+
+.icn-spinner {
+    animation: spin-animation 1s 1s;
+    display: inline-block;
+  }
+  
+  @keyframes spin-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      /* 2154 / 6 = 359 */
+      transform: rotate(2154deg);
+    }
+  }
+  

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { FaEnvelope, FaCheck, FaUser } from 'react-icons/fa';
 
-import { validateEmail } from '../../utils/helpers';
+import { validateEmail } from '../../utils/Validators';
 
 const Form = () => {
   const [email, setEmail] = useState('');
