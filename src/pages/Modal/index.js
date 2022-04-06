@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGlobalContext } from '../../providers/GlobalStateProvider';
-// import { parseDate } from './utils/parseDate';
-// import { parseTitle } from './utils/parseTitle';
+import { parseTitle, parseDate } from '../../utils/Formatters';
 import { getRepoData } from '../../utils/getRepoData';
 import CountUp from 'react-countup';
 import './index.css';
@@ -12,9 +11,6 @@ const Modal = () => {
   const [index, setIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const [tags, setTags] = useState([]);
-
-  const increaseIndex = () =>
-    index === repoImages.length - 1 ? setIndex(0) : setIndex(index + 1);
 
   const styles = {
     hidden: {
@@ -34,19 +30,20 @@ const Modal = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      increaseIndex();
-    }, 3000);
+    const interval = setInterval(
+      () =>
+        index === repoImages.length - 1 ? setIndex(0) : setIndex(index + 1),
+      3000
+    );
 
     return () => clearInterval(interval);
-  }, [index]);
+  }, [index, repoImages.length]);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
-    // const tours = await fetch(url).then((response) => response.json());
     try {
       console.log(repoData);
       const response = await getRepoData(repoData);
@@ -64,11 +61,13 @@ const Modal = () => {
         <div className="modal-background" onClick={() => closeModal()}></div>
         <div className="card modal-content has-background-white py-5 px-5">
           <header className="card-header hero has-background-dark">
-            <h2 className="card-header-title has-text-success">{data.title}</h2>
+            <h2 className="card-header-title has-text-success">
+              {parseTitle(data.title)}
+            </h2>
           </header>
           <div className="creation-date-container is-flex is-align-items-center mb-2 pt-3">
             <img className="mr-1" src="./images/calendar.svg" alt="git-tag" />
-            <p className="ml-2">Creation date: {data.date}</p>
+            <p className="ml-2">Creation date: {parseDate(data.date)}</p>
           </div>
           <p className="repo-description">{data.description}</p>
           <div className="card-content p-2">
@@ -120,7 +119,8 @@ const Modal = () => {
                   duration={2}
                   onStart={() => setIsSpinning(true)}
                   onEnd={() => setIsSpinning(false)}
-                />{' '}
+                  className="mr-1"
+                />
                 commits
               </p>
             </div>
