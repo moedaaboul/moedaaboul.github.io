@@ -41,7 +41,7 @@ const Modal = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   const getData = async () => {
     try {
