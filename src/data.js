@@ -20,7 +20,7 @@ import { SiGmail } from 'react-icons/si';
 export const navbarLinks = [
   {
     id: 1,
-    url: '',
+    url: '/',
     icon: <FaInfo />,
     text: 'About me',
     page: 'home',
@@ -34,14 +34,14 @@ export const navbarLinks = [
   },
   {
     id: 3,
-    url: '',
+    url: '/portfolio',
     icon: <BsImages />,
     text: 'Portfolio',
     page: 'portfolio',
   },
   {
     id: 4,
-    url: '',
+    url: '/contact',
     icon: <FaEnvelope />,
     text: 'Contact',
     page: 'contact',

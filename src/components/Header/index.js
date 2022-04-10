@@ -38,7 +38,7 @@ const Header = ({ setPage }) => {
           style={{ height: height }}
         >
           <ul className="navbar-end menu is-dark" ref={linkElementsRef}>
-            <Navigation setPage={setPage} />
+            <Navigation />
           </ul>
         </section>
       </div>
