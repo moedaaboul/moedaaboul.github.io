@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../../components/Card';
+import Project from '../../components/Project';
 import './index.css';
 import Loader from '../../components/Loader';
 
@@ -45,29 +45,29 @@ const Portfolio = () => {
         <section className="portfolio container is-flex is-flex-direction-column">
           <div className="columns row-1">
             <div className="column is-12">
-              <Card title="legogram" />
+              <Project title="legogram" />
             </div>
           </div>
           <div class="columns row-3">
             <div class="column is-4">
-              <Card title="tech-blog" isSquare={true} />
+              <Project title="tech-blog" isSquare={true} />
             </div>
             <div class="column is-4">
-              <Card title="jobs-finder" isSquare={true} />
+              <Project title="jobs-finder" isSquare={true} />
             </div>
             <div class="column is-4">
-              <Card title="team-profile-generator" isSquare={true} />
+              <Project title="team-profile-generator" isSquare={true} />
             </div>
           </div>
           <div class="columns row-3">
             <div class="column is-4">
-              <Card title="quiz-app" isSquare={true} />
+              <Project title="quiz-app" isSquare={true} />
             </div>
             <div class="column is-4">
-              <Card title="weather-dashboard" isSquare={true} />
+              <Project title="weather-dashboard" isSquare={true} />
             </div>
             <div class="column is-4">
-              <Card title="password-generator" isSquare={true} />
+              <Project title="password-generator" isSquare={true} />
             </div>
           </div>
         </section>

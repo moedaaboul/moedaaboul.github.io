@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Modal from './pages/Modal';
+import Footer from './components/Footer';
 import { useGlobalContext } from './providers/GlobalStateProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
         </Routes>
       </Router>
       {isModalOpen && <Modal />}
+      <Footer />
     </>
   );
 }

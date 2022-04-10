@@ -35,7 +35,7 @@
   
   .social-media .icon:before {
     animation: icon-animation var(--icon-animation);
-    /* animation-iteration-count: infinite; */
+    /* animation-iteration-count: 1; */
   }
   
   .social-media {

@@ -3,7 +3,7 @@ import { skills, portfolio } from '../../data';
 import { useGlobalContext } from '../../providers/GlobalStateProvider';
 import './index.css';
 
-const Portfolio = ({ title, isSquare }) => {
+const Project = ({ title, isSquare }) => {
   const { openModal, setRepoData, setRepoImages } = useGlobalContext();
   const [index, setIndex] = useState(0);
   const [isAnimation, setIsAnimation] = useState(false);
@@ -135,4 +135,4 @@ const Portfolio = ({ title, isSquare }) => {
   );
 };
 
-export default Portfolio;
+export default Project;

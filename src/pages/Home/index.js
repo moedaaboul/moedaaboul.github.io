@@ -11,7 +11,7 @@ const Home = () => {
               id="img"
               className="image is-rounded fade"
               src={Image}
-              height="200"
+              // height="200"
               alt="muhammad daaboul"
             />
           </figure>
