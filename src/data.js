@@ -8,6 +8,8 @@ import HTML5 from './images/logos/html5.svg';
 import JavaScriptSvg from './images/logos/js.svg';
 import MySQL from './images/logos/mysql.svg';
 import NodeJS from './images/logos/nodejs.svg';
+import React from './images/logos/react.svg';
+import GraphQL from './images/logos/graphql.svg';
 
 import {
   FaLinkedin,
@@ -27,7 +29,8 @@ export const navbarLinks = [
   },
   {
     id: 2,
-    url: './assets/resume.pdf',
+    // url: './assets/resume.pdf',
+    url: '/resume',
     icon: <BsFileEarmarkTextFill />,
     text: 'Resume',
     page: '',
@@ -198,36 +201,50 @@ export const skills = [
     name: 'Node.js',
     classDesc: 'is-rounded',
     src: NodeJS,
+    type: 'Backend',
   },
   {
     name: 'JavaScript',
     classDesc: 'is-rounded',
     src: JavaScriptSvg,
+    type: 'Frontend',
   },
   {
     name: 'Handlebars',
     classDesc: 'is-rounded has-background-warning-dark p-1',
     src: Handlebars,
+    type: 'Frontend',
   },
   {
     name: 'Cloudinary',
     classDesc: 'is-rounded has-background-dark-blue p-1',
     src: Cloudinary,
+    type: 'Media',
   },
   {
     name: 'HTML5',
     classDesc: 'is-rounded',
     src: HTML5,
+    type: 'Frontend',
   },
   {
     name: 'CSS3',
     classDesc: 'is-rounded',
     src: CSS3,
+    type: 'Frontend',
   },
   {
     name: 'Git',
     classDesc: 'is-rounded',
     src: Git,
+    type: 'Version Control',
   },
-  { name: 'MySQL', classDesc: '', src: MySQL },
+  { name: 'MySQL', classDesc: '', src: MySQL, type: 'Backend' },
+  { name: 'React', classDesc: 'is-rounded', src: React, type: 'Frontend' },
+  {
+    name: 'GraphQL',
+    classDesc: 'is-rounded p-1',
+    src: GraphQL,
+    type: 'Backend',
+  },
 ];
