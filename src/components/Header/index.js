@@ -22,6 +22,8 @@ const Header = ({ setPage }) => {
     <nav className="navbar is-dark">
       <div className="container">
         <section className="navbar-brand">
+          {/* https://www.stylishnameguru.com/ */}
+          <div className="navbar-item is-size-5">𝑀𝓊𝒽𝒶𝓂𝓂𝒶𝒹 𝒟𝒶𝒶𝒷𝑜𝓊𝓁</div>
           <div className="navbar-burger burger" onClick={handleClick}>
             <span></span>
             <span></span>

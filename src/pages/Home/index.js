@@ -25,9 +25,9 @@ const Home = () => {
           </p>
           <div className="sub-title-wrapper is-slider-up">
             <p className="sub-title">
-              I am a Full Stack Developer currently studying towards building
-              modern, fast-loading and responsive web applications. Looking for
-              an opportunity to contribute and share my passion for coding with
+              I am a Full Stack Developer who loves building modern,
+              fast-loading and responsive web applications. Looking for an
+              opportunity to contribute and share my passion for coding with
               organisations that strive for cutting-edge breakthroughs.
             </p>
           </div>
