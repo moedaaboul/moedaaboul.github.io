@@ -7,3 +7,34 @@
     transition: all .5s;
     border: 1px solid #e5e5e5;
 }
+
+
+/* slide right animation */
+
+.is-slider-right-smooth {
+    transition: all 0.3s ease-in-out 0s;
+    animation: 1.5s 0s 1 normal none running
+    slideRight;
+}
+  
+
+.is-slider-left-smooth {
+    transition: all 0.3s ease-in-out 0s;
+    animation: 1.5s 0s 1 normal none running
+    slideLeft;
+}
+
+  @keyframes slideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(150%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  
+
+
+  

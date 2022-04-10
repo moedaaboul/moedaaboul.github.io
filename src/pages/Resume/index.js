@@ -26,24 +26,31 @@ const Resume = () => {
         </div>
         <div className="columns is-multiline is-centered">
           <div className="column is-8"></div>
-          {skills.map((e, i) => (
-            <div className="card column m-3 is-4 grow">
-              <div className="is-flex is-align-items-center">
-                <figure key={i} className="image is-32x32 mr-1">
-                  <img
-                    className={e.classDesc}
-                    src={e.src}
-                    title={`${e.name} icon`}
-                    alt={e.name}
-                  ></img>
-                </figure>
-                <div className="ml-1">
-                  <p className="has-text-weight-medium">{e.name}</p>
-                  <p className="has-text-grey-light">{e.type}</p>
+          {skills.map((e, i) => {
+            const even = i % 2 === 0;
+            return (
+              <div
+                className={`card column m-3 is-4 grow ${
+                  even ? 'is-slider-right-smooth' : 'is-slider-left-smooth'
+                }`}
+              >
+                <div className="is-flex is-align-items-center">
+                  <figure key={i} className="image is-32x32 mr-1">
+                    <img
+                      className={e.classDesc}
+                      src={e.src}
+                      title={`${e.name} icon`}
+                      alt={e.name}
+                    ></img>
+                  </figure>
+                  <div className="ml-1">
+                    <p className="has-text-weight-medium">{e.name}</p>
+                    <p className="has-text-grey-light">{e.type}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
