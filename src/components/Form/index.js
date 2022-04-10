@@ -75,6 +75,27 @@ const Form = () => {
     return () => clearTimeout(timeout);
   }, [errorMessage]);
 
+  const onUsernameBlur = () => {
+    if (!userName) {
+      setErrorMessage('Username should not be empty');
+      return;
+    }
+  };
+
+  const onEmailBlur = () => {
+    if (!email) {
+      setErrorMessage('Email should not be empty');
+      return;
+    }
+  };
+
+  const onMessageBlur = () => {
+    if (!message) {
+      setErrorMessage('Message should not be empty');
+      return;
+    }
+  };
+
   if (state.succeeded) {
     return (
       <div>
@@ -100,6 +121,7 @@ const Form = () => {
               id="full-name"
               type="text"
               name="full-name"
+              onBlur={onUsernameBlur}
               required
             />
             <span className="icon is-small is-left">
@@ -125,6 +147,7 @@ const Form = () => {
                 className="input"
                 value={email}
                 onChange={handleInputChange}
+                onBlur={onEmailBlur}
                 name="email"
                 type="email"
                 id="email"
@@ -153,6 +176,7 @@ const Form = () => {
               className="textarea is-medium"
               value={message}
               onChange={handleInputChange}
+              onBlur={onMessageBlur}
               name="message"
               id="message"
               placeholder="Text area"
