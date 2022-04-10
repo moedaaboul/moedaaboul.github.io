@@ -1,0 +1,9 @@
+.grow:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.grow {
+    transition: all .5s;
+    border: 1px solid #e5e5e5;
+}
