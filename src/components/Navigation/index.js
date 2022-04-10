@@ -1,6 +1,6 @@
 import React from 'react';
 import { navbarLinks } from '../../data';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = ({ setPage }) => {
   return navbarLinks.map((item) => {
@@ -17,10 +17,16 @@ const Navigation = ({ setPage }) => {
     }
 
     return (
-      <Link key={id} className="navbar-item" to={url}>
+      <NavLink
+        key={id}
+        className={({ isActive }) =>
+          isActive ? 'navbar-item is-active has-text-success' : 'navbar-item'
+        }
+        to={url}
+      >
         <span className="icon">{icon}</span>
         <span>{text}</span>
-      </Link>
+      </NavLink>
     );
   });
 };
