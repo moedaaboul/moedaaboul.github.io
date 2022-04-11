@@ -117,23 +117,32 @@ const Project = ({ title, isSquare }) => {
                   <span>
                     <a
                       href={portfolio[titleIndex].url}
+                      className="is-link ml-1"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Preview
+                      <img
+                        className="mr-1"
+                        src="./images/eye.svg"
+                        alt="eye-tag"
+                        title="Click to preview"
+                      />
                     </a>
                   </span>
                 </p>
                 <p className="card-footer-item">
                   <span>
-                    View on
                     <a
                       href={portfolio[titleIndex].github}
                       className="is-link ml-1"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Github
+                      <img
+                        title="Github icon"
+                        src="./images/github.svg"
+                        alt="git-tag"
+                      />
                     </a>
                   </span>
                 </p>
