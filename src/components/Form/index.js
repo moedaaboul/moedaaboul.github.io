@@ -28,7 +28,7 @@ const Form = () => {
   };
 
   useEffect(() => {
-    if (isFirstRun.current < 3) {
+    if (isFirstRun.current < 1) {
       isFirstRun.current++;
       return;
     } else if ((email && !validateEmail(email)) || !email) {
@@ -41,32 +41,6 @@ const Form = () => {
       return;
     }
   }, [email]);
-
-  useEffect(() => {
-    if (isFirstRun.current < 3) {
-      isFirstRun.current++;
-      return;
-    } else if (!message) {
-      setErrorMessage('Message should not be empty');
-      return;
-    } else {
-      setErrorMessage('');
-      return;
-    }
-  }, [message]);
-
-  useEffect(() => {
-    if (isFirstRun.current < 3) {
-      isFirstRun.current++;
-      return;
-    } else if (!userName) {
-      setErrorMessage('Username should not be empty');
-      return;
-    } else {
-      setErrorMessage('');
-      return;
-    }
-  }, [userName]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
