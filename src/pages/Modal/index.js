@@ -50,7 +50,6 @@ const Modal = () => {
     const getData = async () => {
       try {
         const response = await getRepoData(repoData);
-        console.log(response);
         setData(response);
         setTags(response.tags);
         setLoading(false);
