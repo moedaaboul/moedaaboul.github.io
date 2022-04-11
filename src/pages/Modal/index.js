@@ -3,6 +3,12 @@ import { useGlobalContext } from '../../providers/GlobalStateProvider';
 import { parseTitle, parseDate } from '../../utils/Formatters';
 import { getRepoData } from '../../utils/getRepoData';
 import CountUp from 'react-countup';
+import AwardSvg from '../../images/award.svg';
+import GithubSvg from '../../images/github.svg';
+import EyeSvg from '../../images/eye.svg';
+import CalendarSvg from '../../images/calendar.svg';
+import GitCommitSvg from '../../images/git-commit.svg';
+import TagSvg from '../../images/tag.svg';
 import './index.css';
 
 const Modal = () => {
@@ -76,7 +82,7 @@ const Modal = () => {
             </h2>
           </header>
           <div className="creation-date-container is-flex is-align-items-center mb-2 pt-3">
-            <img className="mr-1" src="./images/calendar.svg" alt="git-tag" />
+            <img className="mr-1" src={CalendarSvg} alt="git-tag" />
             {loading ? (
               <div className="ml-2 skeleton skeleton-text-short"></div>
             ) : (
@@ -107,7 +113,7 @@ const Modal = () => {
             })}
             <footer className="card-footer">
               <p className="card-footer-item is-flex is-align-items-center">
-                <img className="mr-1" src="./images/eye.svg" alt="git-tag" />
+                <img className="mr-1" src={EyeSvg} alt="git-tag" />
                 <span>
                   <a href={projectUrl} target="_blank" rel="noreferrer">
                     Preview
@@ -117,14 +123,14 @@ const Modal = () => {
               <p className="card-footer-item">
                 <span>
                   <a href={githubUrl} target="_blank" rel="noreferrer">
-                    <img src="./images/github.svg" alt="git-tag" />
+                    <img src={GithubSvg} alt="git-tag" />
                     Github
                   </a>
                 </span>
               </p>
             </footer>
             <div className="license-container is-flex is-align-items-center mb-2">
-              <img src="./images/tag.svg" alt="git-tag" />
+              <img src={TagSvg} alt="git-tag" />
               {loading ? (
                 <>
                   <div className="ml-2 skeleton skeleton-header"></div>
@@ -143,7 +149,7 @@ const Modal = () => {
             </div>
             <div className="license-container is-flex is-align-items-center mb-2">
               <img
-                src="./images/git-commit.svg"
+                src={GitCommitSvg}
                 className={`commit-svg ${isSpinning && `icn-spinner`}`}
                 alt="git-commit"
               />
@@ -166,7 +172,7 @@ const Modal = () => {
               )}
             </div>
             <div className="license-container is-flex is-align-items-center mb-2">
-              <img src="./images/award.svg" alt="git-commit" />
+              <img src={AwardSvg} alt="git-commit" />
               {loading ? (
                 <div className="ml-2 skeleton skeleton-text-short"></div>
               ) : (

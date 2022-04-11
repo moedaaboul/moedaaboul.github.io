@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { skills, portfolio } from '../../data';
 import { useGlobalContext } from '../../providers/GlobalStateProvider';
+import EyeIconSvg from '../../images/eye.svg';
+import GithubIconSvg from '../../images/github.svg';
 import './index.css';
 
 const Project = ({ title, isSquare }) => {
@@ -123,8 +125,8 @@ const Project = ({ title, isSquare }) => {
                     >
                       <img
                         className="mr-1"
-                        src="./images/eye.svg"
-                        alt="eye-tag"
+                        src={EyeIconSvg}
+                        alt="eye icon"
                         title="Click to preview"
                       />
                     </a>
@@ -140,7 +142,7 @@ const Project = ({ title, isSquare }) => {
                     >
                       <img
                         title="Github icon"
-                        src="./images/github.svg"
+                        src={GithubIconSvg}
                         alt="git-tag"
                       />
                     </a>
