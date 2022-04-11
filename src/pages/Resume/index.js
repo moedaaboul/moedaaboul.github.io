@@ -7,7 +7,7 @@ const Resume = () => {
   return (
     <>
       <div className="container">
-        <div className="portfolio-heading" id="portfolio">
+        <div className="portfolio-heading">
           <h3 className="title is-2">Resume</h3>
           <div className="is-centered">
             <Button

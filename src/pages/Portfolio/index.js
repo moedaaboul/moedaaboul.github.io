@@ -42,7 +42,7 @@ const Portfolio = () => {
         </div>
       )}
       <div style={loading ? styles.hidden : styles.show}>
-        <div className="portfolio-heading" id="portfolio">
+        <div className="portfolio-heading">
           <h3 className="title is-2">Portfolio</h3>
           <h4 className="subtitle is-5">My latest works</h4>
         </div>

@@ -5,11 +5,11 @@ import './index.css';
 
 const Contact = () => {
   return (
-    <section className="section contact center-row py-5" id="contact">
+    <section className="section contact center-row mt-5">
       <div className="container hero is-fullheight">
-        <section className="columns is-8 is-variable">
+        <section className="columns is-8 is-variabler">
           <section className="column is-half-tablet is-three-fifths-desktop has-text-left">
-            <div className="label" id="portfolio">
+            <div className="label">
               <h3 className="title is-2">Contact Me</h3>
             </div>
             <ul className="social-media is-flex">

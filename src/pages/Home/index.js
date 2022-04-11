@@ -3,12 +3,11 @@ import './index.css';
 import Image from './profile.png';
 const Home = () => {
   return (
-    <section className="hero is-dark is-fullheight-with-navbar" id="about-me">
+    <section className="hero is-dark is-fullheight-with-navbar">
       <div className="hero-body">
         <div className="container">
           <figure className="m-5 image is-128x128">
             <img
-              id="img"
               className="image is-rounded fade"
               src={Image}
               // height="200"

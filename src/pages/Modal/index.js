@@ -151,11 +151,7 @@ const Modal = () => {
                 <div className="ml-2 skeleton skeleton-text-short"></div>
               ) : (
                 <>
-                  <p
-                    className="ml-2"
-                    id="value"
-                    data-value={data?.commits || ''}
-                  >
+                  <p className="ml-2">
                     <CountUp
                       start={data?.commits / 4 || ''}
                       end={data?.commits || ''}
