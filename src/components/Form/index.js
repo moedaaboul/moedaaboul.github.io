@@ -126,6 +126,7 @@ const Form = () => {
                 type="email"
                 id="email"
                 placeholder="Email"
+                required
               />
               <span className="icon is-small is-left">
                 <FaEnvelope />
