@@ -6,7 +6,14 @@ import CountUp from 'react-countup';
 import './index.css';
 
 const Modal = () => {
-  const { isModalOpen, closeModal, repoData, repoImages } = useGlobalContext();
+  const {
+    isModalOpen,
+    closeModal,
+    repoData,
+    repoImages,
+    projectUrl,
+    githubUrl,
+  } = useGlobalContext();
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -42,11 +49,10 @@ const Modal = () => {
   useEffect(() => {
     const timeout = setTimeout(() => getData(), 1000);
     return () => clearTimeout(timeout);
-  });
+  }, []);
 
   const getData = async () => {
     try {
-      console.log(repoData);
       const response = await getRepoData(repoData);
       console.log(response);
       setData(response);
@@ -105,14 +111,14 @@ const Modal = () => {
               <p className="card-footer-item is-flex is-align-items-center">
                 <img className="mr-1" src="./images/eye.svg" alt="git-tag" />
                 <span>
-                  <a href="www.https://github.com/moedaaboul/">Preview</a>
+                  <a href={projectUrl} target="_blank" rel="noreferrer">
+                    Preview
+                  </a>
                 </span>
               </p>
               <p className="card-footer-item">
                 <span>
-                  <a
-                    href={`https://github.com/moedaaboul/${data?.title || ''}`}
-                  >
+                  <a href={githubUrl} target="_blank" rel="noreferrer">
                     <img src="./images/github.svg" alt="git-tag" />
                     Github
                   </a>

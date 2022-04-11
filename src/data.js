@@ -119,7 +119,7 @@ export const portfolio = [
       'images/blog/tech-blog7.png',
     ],
     github: 'https://github.com/moedaaboul/tech-blog',
-    url: 'https://moedaaboul.github.io/tech-blog/',
+    url: 'https://mdaaboul-tech-blog.herokuapp.com/',
   },
   {
     id: 3,

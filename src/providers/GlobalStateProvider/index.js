@@ -6,6 +6,8 @@ const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [repoData, setRepoData] = useState([]);
   const [repoImages, setRepoImages] = useState([]);
+  const [projectUrl, setProjectUrl] = useState([]);
+  const [githubUrl, setGithubUrl] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -24,6 +26,10 @@ const AppProvider = ({ children }) => {
         setRepoData,
         repoImages,
         setRepoImages,
+        projectUrl,
+        setProjectUrl,
+        githubUrl,
+        setGithubUrl,
       }}
     >
       {children}

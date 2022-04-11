@@ -4,7 +4,8 @@ import { useGlobalContext } from '../../providers/GlobalStateProvider';
 import './index.css';
 
 const Project = ({ title, isSquare }) => {
-  const { openModal, setRepoData, setRepoImages } = useGlobalContext();
+  const { openModal, setRepoData, setRepoImages, setProjectUrl, setGithubUrl } =
+    useGlobalContext();
   const [index, setIndex] = useState(0);
   const [isAnimation, setIsAnimation] = useState(false);
   const squareWrapperRef = useRef(null);
@@ -75,6 +76,8 @@ const Project = ({ title, isSquare }) => {
               onClick={() => {
                 setRepoData(title);
                 setRepoImages(portfolio[titleIndex].images);
+                setProjectUrl(portfolio[titleIndex].url);
+                setGithubUrl(portfolio[titleIndex].github);
                 openModal();
               }}
             >
@@ -112,7 +115,13 @@ const Project = ({ title, isSquare }) => {
               <footer className="card-footer">
                 <p className="card-footer-item">
                   <span>
-                    <a href={portfolio[titleIndex].url}>Preview</a>
+                    <a
+                      href={portfolio[titleIndex].url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Preview
+                    </a>
                   </span>
                 </p>
                 <p className="card-footer-item">
@@ -121,6 +130,8 @@ const Project = ({ title, isSquare }) => {
                     <a
                       href={portfolio[titleIndex].github}
                       className="is-link ml-1"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Github
                     </a>
