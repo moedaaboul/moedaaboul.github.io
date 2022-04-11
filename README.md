@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# moedaaboul.github.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a portfolio site using React.js.
+Live demo [_here_](https://moedaaboul.github.io/).
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [General Info](#general-information)
+- [Appearance](#appearance)
+- [Github stats](#github-api)
+- [Technologies Used](#technologies-used)
+- [Setup](#setup)
+- [Project Status](#project-status)
+- [Contact](#contact)
+- [License](#license)
 
-### `npm start`
+## General Information
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The purpose of this app is to showcase my portfolio, which has the following features:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- A single-page application portfolio built with React.js
+- App displays contact information via a contact section where messages can be sumbitted via Formspree.
+- Interactive Form with error message rendering upon email valiation and blur events.
+- Links to Github and LinkedIn have been provided in the contact and footer sections.
+- Details around commits, license, and description presented via a modal.
+- Job modal info fetched from the Github API under the Portfolio page.
+- Image slider provided in Project cards and modal views under the Portfolio page.
+- Multiple use of animaitons including transform, square, and more!
+- Polished interface with smooth scrolling and links to downloadable and viewable pdf resume.
 
-### `npm test`
+## Appearance
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Below depicts full home page view of my portfolio app:
 
-### `npm run build`
+![Full page view of portfolio](./assets/readme.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React
+- JavaScript
+- Github API
+- IntersectionObserver API
+- JSX
+- HTML
+- CSS
+- Bulma framework
+- React Icons
+- Formspree
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup
 
-### `npm run eject`
+-Text editor (VS Code recommended)
+-An Internet browser (Google Chrome recommended)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Status
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Project is: complete.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Acknowledgements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- www.freeicons.io
+- www.vectorlogo.zone
 
-## Learn More
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Created by -[@moedaaboul](https://github.com/moedaaboull)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Feel free to contact me!
 
-### Code Splitting
+## LICENSE
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This work is licensed under
+[MIT](https://github.com/moedaaboul/moedaaboul.github.io/blob/main/LICENSE).
