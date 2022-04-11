@@ -9,7 +9,7 @@ const Resume = () => {
       <div className="container">
         <div className="portfolio-heading" id="portfolio">
           <h3 className="title is-2">Resume</h3>
-          <div class="is-centered">
+          <div className="is-centered">
             <Button
               download={true}
               text="Download CV"
@@ -30,6 +30,7 @@ const Resume = () => {
             const even = i % 2 === 0;
             return (
               <div
+                key={i}
                 className={`card column m-3 is-4 grow ${
                   even ? 'is-slider-right-smooth' : 'is-slider-left-smooth'
                 }`}
@@ -53,11 +54,6 @@ const Resume = () => {
           })}
         </div>
       </div>
-
-      {/* <a key={id} className="navbar-item" {...urlAttribute}>
-        <span className="icon">{icon}</span>
-        <span>{text}</span>
-      </a> */}
     </>
   );
 };

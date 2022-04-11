@@ -47,21 +47,20 @@ const Modal = () => {
   }, [index, repoImages.length]);
 
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await getRepoData(repoData);
+        console.log(response);
+        setData(response);
+        setTags(response.tags);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     const timeout = setTimeout(() => getData(), 1000);
     return () => clearTimeout(timeout);
-  }, []);
-
-  const getData = async () => {
-    try {
-      const response = await getRepoData(repoData);
-      console.log(response);
-      setData(response);
-      setTags(response.tags);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, [repoData]);
 
   return (
     <>
@@ -100,7 +99,7 @@ const Modal = () => {
           <div className="card-content p-2">
             {repoImages.map((e, i) => {
               return (
-                <div className="mySlides fade" style={findStyle(i)}>
+                <div key={i} className="mySlides fade" style={findStyle(i)}>
                   <figure className="image is-3by2">
                     <img src={e} alt="" />
                   </figure>

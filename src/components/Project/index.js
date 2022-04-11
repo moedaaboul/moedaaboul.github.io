@@ -64,7 +64,7 @@ const Project = ({ title, isSquare }) => {
 
   return (
     <>
-      <div class="square-wrapper" ref={squareWrapperRef}>
+      <div className="square-wrapper" ref={squareWrapperRef}>
         <div
           className={`card ${isSquare && 'square'} ${
             isAnimation && 'square-animation'
@@ -103,7 +103,7 @@ const Project = ({ title, isSquare }) => {
             <div className="slideshow-container">
               {portfolio[titleIndex].images.map((e, i) => {
                 return (
-                  <div className="mySlides fade" style={findStyle(i)}>
+                  <div key={i} className="mySlides fade" style={findStyle(i)}>
                     <figure
                       className={`image ${isSquare ? `is-3by2` : `is-6by3`}`}
                     >
