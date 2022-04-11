@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Project from '../../components/Project';
 import './index.css';
 import Loader from '../../components/Loader';
+import Row from '../../components/Row';
+
+const firstRow = ['tech-blog', 'jobs-finder', 'team-profile-generator'];
+const secondRow = ['quiz-app', 'weather-dashboard', 'password-generator'];
 
 const Portfolio = () => {
   const [loading, setLoading] = useState(true);
@@ -48,28 +52,8 @@ const Portfolio = () => {
               <Project title="legogram" />
             </div>
           </div>
-          <div class="columns row-3">
-            <div class="column is-4">
-              <Project title="tech-blog" isSquare={true} />
-            </div>
-            <div class="column is-4">
-              <Project title="jobs-finder" isSquare={true} />
-            </div>
-            <div class="column is-4">
-              <Project title="team-profile-generator" isSquare={true} />
-            </div>
-          </div>
-          <div class="columns row-3">
-            <div class="column is-4">
-              <Project title="quiz-app" isSquare={true} />
-            </div>
-            <div class="column is-4">
-              <Project title="weather-dashboard" isSquare={true} />
-            </div>
-            <div class="column is-4">
-              <Project title="password-generator" isSquare={true} />
-            </div>
-          </div>
+          <Row projects={firstRow} />
+          <Row projects={secondRow} />
         </section>
       </div>
     </>
