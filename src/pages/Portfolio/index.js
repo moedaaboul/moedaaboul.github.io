@@ -4,7 +4,7 @@ import './index.css';
 import Loader from '../../components/Loader';
 import Row from '../../components/Row';
 
-const firstRow = ['tech-blog', 'jobs-finder', 'team-profile-generator'];
+const firstRow = ['book-search-engine', 'tech-blog', 'jobs-finder'];
 const secondRow = ['quiz-app', 'weather-dashboard', 'password-generator'];
 
 const Portfolio = () => {

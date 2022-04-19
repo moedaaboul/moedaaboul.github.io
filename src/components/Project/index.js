@@ -3,6 +3,7 @@ import { skills, portfolio } from '../../data';
 import { useGlobalContext } from '../../providers/GlobalStateProvider';
 import EyeIconSvg from '../../images/eye.svg';
 import GithubIconSvg from '../../images/github.svg';
+import { parseTitle } from '../../utils/Formatters';
 import './index.css';
 
 const Project = ({ title, isSquare }) => {
@@ -83,7 +84,7 @@ const Project = ({ title, isSquare }) => {
                 openModal();
               }}
             >
-              {name}
+              {parseTitle(name)}
             </h3>
             <div className="is-flex is-align-items-center">
               {skillsData.map((e, i) => {

@@ -194,6 +194,20 @@ export const portfolio = [
       'https://drive.google.com/file/d/1KAaGDYgHObkcrLzAKw4rKIMEY04-3JRm/view',
     url: 'https://moedaaboul.github.io/password-generator/',
   },
+  {
+    id: 8,
+    name: 'book-search-engine',
+    technologies: ['React', 'Node.js', 'GraphQL'],
+    images: [
+      'images/mern/mern1.png',
+      'images/mern/mern2.png',
+      'images/mern/mern3.png',
+      'images/mern/mern4.png',
+      'images/mern/mern5.png',
+    ],
+    github: 'https://github.com/moedaaboul/book-search-engine',
+    url: 'https://google-books-search-save-app.herokuapp.com',
+  },
 ];
 
 export const skills = [
