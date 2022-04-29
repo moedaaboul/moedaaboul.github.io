@@ -31,6 +31,7 @@ const Contact = () => {
                 );
               })}
             </ul>
+            <h3 className="subtitle">𝓂𝓊𝒽𝒶𝓂𝓂𝒶𝒹.𝒶.𝒹𝒶𝒶𝒷𝑜𝓊𝓁@𝑔𝓂𝒶𝒾𝓁.𝒸𝑜𝓂</h3>
           </section>
           <section className="column is-half-tablet is-two-fifths-desktop has-text-left">
             <Form />

@@ -21,7 +21,6 @@ export async function getRepoData(name) {
       date: repoRaw.created_at,
       commits: contributions,
     };
-    console.log(repo);
     return repo;
   } catch (error) {
     console.error(error);
