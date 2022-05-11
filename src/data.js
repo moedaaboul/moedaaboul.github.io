@@ -10,6 +10,9 @@ import MySQL from './images/logos/mysql.svg';
 import NodeJS from './images/logos/nodejs.svg';
 import React from './images/logos/react.svg';
 import GraphQL from './images/logos/graphql.svg';
+import MongoDB from './images/logos/mongodb.svg';
+import MuiSVG from './images/logos/mui.svg';
+import ReduxSVG from './images/logos/redux.svg';
 
 import {
   FaLinkedin,
@@ -208,15 +211,54 @@ export const portfolio = [
     github: 'https://github.com/moedaaboul/book-search-engine',
     url: 'https://google-books-search-save-app.herokuapp.com',
   },
+  {
+    id: 9,
+    name: 'babylon',
+    technologies: [
+      'MongoDB',
+      'GraphQL',
+      'React',
+      'Node.js',
+      'Cloudinary',
+      'MUI',
+      'Git',
+      'CSS3',
+    ],
+    images: [
+      'images/babylon/babylon-1.png',
+      'images/babylon/babylon-2.png',
+      'images/babylon/babylon-3.png',
+      'images/babylon/babylon-4.png',
+      'images/babylon/babylon-5.png',
+      'images/babylon/babylon-6.png',
+      'images/babylon/babylon-7.png',
+      'images/babylon/babylon-8.png',
+      'images/babylon/babylon-9.png',
+      'images/babylon/babylon-10.png',
+      'images/babylon/babylon-11.png',
+      'images/babylon/babylon-12.png',
+      'images/babylon/babylon-13.png',
+    ],
+    github: 'https://github.com/moedaaboul/babylon',
+    url: 'https://ebabylon.herokuapp.com/',
+  },
+  {
+    id: 10,
+    name: 'redux-store',
+    technologies: ['Redux', 'React', 'MongoDB'],
+    images: [
+      'images/redux-store/redux-store-1.png',
+      'images/redux-store/redux-store-2.png',
+      'images/redux-store/redux-store-3.png',
+      'images/redux-store/redux-store-4.png',
+    ],
+    github: 'https://github.com/moedaaboul/redux-store',
+    url: 'https://redux-store-mdaaboul.herokuapp.com/',
+  },
 ];
 
 export const skills = [
-  {
-    name: 'Node.js',
-    classDesc: 'is-rounded',
-    src: NodeJS,
-    type: 'Backend',
-  },
+  { name: 'React', classDesc: 'is-rounded', src: React, type: 'Frontend' },
   {
     name: 'JavaScript',
     classDesc: 'is-rounded',
@@ -224,16 +266,23 @@ export const skills = [
     type: 'Frontend',
   },
   {
-    name: 'Handlebars',
-    classDesc: 'is-rounded has-background-warning-dark p-1',
-    src: Handlebars,
-    type: 'Frontend',
+    name: 'GraphQL',
+    classDesc: 'is-rounded p-1',
+    src: GraphQL,
+    type: 'Backend',
   },
   {
-    name: 'Cloudinary',
-    classDesc: 'is-rounded has-background-dark-blue p-1',
-    src: Cloudinary,
-    type: 'Media',
+    name: 'Node.js',
+    classDesc: 'is-rounded',
+    src: NodeJS,
+    type: 'Backend',
+  },
+  { name: 'MySQL', classDesc: '', src: MySQL, type: 'Backend' },
+  {
+    name: 'MongoDB',
+    classDesc: 'is-rounded has-background-light-blue',
+    src: MongoDB,
+    type: 'Backend',
   },
   {
     name: 'HTML5',
@@ -248,17 +297,33 @@ export const skills = [
     type: 'Frontend',
   },
   {
+    name: 'MUI',
+    classDesc: 'is-rounded has-background-light-blue',
+    src: MuiSVG,
+    type: 'Frontend',
+  },
+  {
+    name: 'Cloudinary',
+    classDesc: 'is-rounded has-background-dark-blue p-1',
+    src: Cloudinary,
+    type: 'Media',
+  },
+  {
     name: 'Git',
     classDesc: 'is-rounded',
     src: Git,
     type: 'Version Control',
   },
-  { name: 'MySQL', classDesc: '', src: MySQL, type: 'Backend' },
-  { name: 'React', classDesc: 'is-rounded', src: React, type: 'Frontend' },
   {
-    name: 'GraphQL',
-    classDesc: 'is-rounded p-1',
-    src: GraphQL,
-    type: 'Backend',
+    name: 'Handlebars',
+    classDesc: 'is-rounded has-background-warning-dark p-1',
+    src: Handlebars,
+    type: 'Frontend',
+  },
+  {
+    name: 'Redux',
+    classDesc: 'is-rounded',
+    src: ReduxSVG,
+    type: 'Frontend',
   },
 ];

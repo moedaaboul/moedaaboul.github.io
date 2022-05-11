@@ -4,8 +4,8 @@ import './index.css';
 import Loader from '../../components/Loader';
 import Row from '../../components/Row';
 
-const firstRow = ['book-search-engine', 'tech-blog', 'jobs-finder'];
-const secondRow = ['quiz-app', 'weather-dashboard', 'password-generator'];
+const firstRow = ['book-search-engine', 'tech-blog', 'redux-store'];
+const secondRow = ['jobs-finder', 'quiz-app', 'weather-dashboard'];
 
 const Portfolio = () => {
   const [loading, setLoading] = useState(true);
@@ -47,6 +47,11 @@ const Portfolio = () => {
           <h4 className="subtitle is-5">My latest works</h4>
         </div>
         <section className="portfolio container is-flex is-flex-direction-column">
+          <div className="columns row-1">
+            <div className="column is-12">
+              <Project title="babylon" />
+            </div>
+          </div>
           <div className="columns row-1">
             <div className="column is-12">
               <Project title="legogram" />
