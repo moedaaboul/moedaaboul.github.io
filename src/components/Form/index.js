@@ -11,7 +11,7 @@ const Form = () => {
   const [state, handleSubmit] = useForm('xknyvvlj');
   const [errorMessage, setErrorMessage] = useState('');
   const [isEmailSuccess, setisEmailSuccess] = useState(false);
-  const isFirstRun = useRef(0);
+  const isFirstRun = useRef(true);
 
   const handleInputChange = (e) => {
     const { target } = e;
@@ -28,8 +28,12 @@ const Form = () => {
   };
 
   useEffect(() => {
-    if (isFirstRun.current < 1) {
-      isFirstRun.current++;
+    isFirstRun.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (isFirstRun.current === true) {
+      isFirstRun.current = false;
       return;
     } else if ((email && !validateEmail(email)) || !email) {
       setErrorMessage('Email does not match format criteria');
@@ -45,7 +49,7 @@ const Form = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage('');
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timeout);
   }, [errorMessage]);
 
@@ -186,7 +190,7 @@ const Form = () => {
       </form>
       {errorMessage && (
         <div>
-          <p className="help is-danger is-size-4">{errorMessage}</p>
+          <p className="help is-white is-size-4">{errorMessage}</p>
         </div>
       )}
     </>
