@@ -23,12 +23,7 @@ const Home = () => {
             />
           </p>
           <div className="sub-title-wrapper is-slider-up">
-            <p className="sub-title">
-              I am a Full Stack Developer who loves building modern,
-              fast-loading and responsive web applications. Looking for an
-              opportunity to contribute and share my passion for coding with
-              organisations that strive for cutting-edge breakthroughs.
-            </p>
+            <p className="sub-title">I am a Software Developer.</p>
           </div>
         </div>
       </div>

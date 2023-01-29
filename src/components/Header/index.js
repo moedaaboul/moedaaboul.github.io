@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Navigation from '../Navigation';
 import './index.css';
 
@@ -6,6 +6,9 @@ const Header = ({ setPage }) => {
   const linksContainerRef = useRef(null);
   const linkElementsRef = useRef(null);
   const [height, setHeight] = useState(0);
+  useEffect(() => {
+    document.title = 'Muhammad Daaboul - Software Developer';
+  }, []);
   const handleClick = (e) => {
     e.preventDefault();
     const containerHeight =
