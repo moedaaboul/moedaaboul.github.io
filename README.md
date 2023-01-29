@@ -25,7 +25,7 @@ The purpose of this app is to showcase my portfolio, which has the following fea
 - Details around commits, license, and description presented via a modal.
 - Job modal info fetched from the Github API under the Portfolio page.
 - Image slider provided in Project cards and modal views under the Portfolio page.
-- Multiple use of animaitons including transform, square, and more!
+- Multiple use of animations including transform, square, and more!
 - Polished interface with smooth scrolling and links to downloadable and viewable pdf resume.
 
 ## Appearance
